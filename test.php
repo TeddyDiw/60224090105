@@ -12,6 +12,10 @@
     echo $province;
     echo "<br/";
 
+    $suid = $_GET["suid"];
+    echo $suid;
+    echo "<br/";
+
     $fc = $_POST["favcolor"];
     echo $_POST["favcolor"]; 
     echo "<br/>";

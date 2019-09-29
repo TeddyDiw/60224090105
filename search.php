@@ -1,34 +1,46 @@
-<?php 
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "shop";
+<!DOCTYPE html>
+<html>
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password,$dbname);
+<head>
+    <meta charset="utf-8">
+    <title>Form Test</title>
+    </head>
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    //echo "Connected successfully";
-    mysqli_set_charset($conn,"utf8");
+    <body>
+    <center><h2>Search it!</h2></center>
+    <center>
+    <table>
+    <form action="/60224090105/search.php" method="post">
+    <input type="text" id="Search" name="Search" placeholder=""/><br />
+    <br/>
+    <input type="submit" value="ค้นหา" /> &nbsp;
+    <input type="reset" value="เคลียร์" />
+    <br/>
 
-    $suid = $_GET["suid"];
-    if($suid){
-            echo "has value<br/>";
-            //$sql = "INSERT INTO user (suuid, sugender, suname, suprovince, sufavcolor, susize, sumobile_number, supwd, suintro) VALUES (NULL, '$type', '$fullname', '$province', '$fc', '$size', '$mobile_number', '$pwd','$intro')";
-            $sql = "DELETE from user where suuid = '$suid'";
+    
 
-            if ($conn->query($sql) === TRUE) {
-                echo "Delete successfully";
-            } else {
-                echo "Error deleting: " . $sql . "<br>" . $conn->error;
-            }
-    }
-
-    echo "<table style=\"width:50%\" cellspacing=\"0\" border=\"1\"bgcolor=\"#ffcc33\">";
+    </table>
+    
+    <?php
+        $keyword = $_POST["Search"];
+        
+        //echo $keyword;
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "shop";
+    
+        // Create connection
+        $conn = new mysqli($servername, $username, $password,$dbname);
+    
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        //echo "Connected successfully";
+        mysqli_set_charset($conn,"utf8");
+        echo "<table style=\"width:50%\" cellspacing=\"0\" border=\"1\"bgcolor=\"#ffcc33\">";
     echo "<tr>";
     echo "<th> ID </th>";
     echo "<th> Username</th>";
@@ -37,7 +49,7 @@
 
     //$sql = "INSERT INTO user (suuid, sugender, suname, suprovince, sufavcolor, susize, sumobile_number, supwd, suintro) VALUES (NULL, 'male', 'สมศรี', 'กาญจนบุรี', '#00f00', '5', '12345', '9876543210','Hello')";
     //$sql = "SELECT suuid, suname, suprovince FROM user";
-    $sql = "SELECT * FROM user ";
+    $sql = "SELECT * FROM `user` WHERE suname LIKE'%$keyword%' ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -63,8 +75,10 @@
     }
 
     echo "</table>";
-
     $conn->close();
     echo"<a href=\"http://localhost/60224090105/formtest.html\">หน้าฟอร์ม</a>";
 
-?>
+    ?>
+    </center>
+    </body>
+    </html>
