@@ -24,7 +24,6 @@
     
     <?php
         $keyword = $_POST["Search"];
-        
         //echo $keyword;
         $servername = "localhost";
         $username = "root";
@@ -45,7 +44,9 @@
     echo "<th> ID </th>";
     echo "<th> Username</th>";
     echo "<th> Province</th>";
+    echo "<th> Edit</th>";
     echo "</tr>";
+    
 
     //$sql = "INSERT INTO user (suuid, sugender, suname, suprovince, sufavcolor, susize, sumobile_number, supwd, suintro) VALUES (NULL, 'male', 'สมศรี', 'กาญจนบุรี', '#00f00', '5', '12345', '9876543210','Hello')";
     //$sql = "SELECT suuid, suname, suprovince FROM user";
@@ -61,12 +62,14 @@
         echo "<td bgcolor=\"#000000\"> <font color=\"#ffffcc\"><center><a href=\"http://localhost/60224090105/show.php?suid=".$row["suuid"]."\">". $row["suuid"]."</a></center></td>";
         echo "<td bgcolor=\"#000000\"> <font color=\"#ffffcc\">". $row["suname"]."</font> </td>";
         echo "<td bgcolor=\"#000000\"> <font color=\"#ffffcc\"><center>". $row["suprovince"]."<center></td>";
+        echo "<td bgcolor=\"#000000\"> <font color=\"#ffffcc\"><center><a href=\"http://localhost/60224090105/edit.php?suid=".$row["suuid"]."\"><img width=\"50\" height=\"50\" src=\"./img/dinsor.jpg\"></a><center></td>";
         echo "</tr>";
         }else{
             echo "<tr>";
             echo "<td bgcolor=\"#ffffff\"> <font color=\"#000000\"><center><a href=\"http://localhost/60224090105/show.php?suid=".$row["suuid"]."\">". $row["suuid"]."</a></center></td>";
             echo "<td bgcolor=\"#ffffff\"> <font color=\"#000000\">". $row["suname"]."</font> </td>";
             echo "<td bgcolor=\"#ffffff\"> <font color=\"#000000\"><center>". $row["suprovince"]."<center></td>";
+            echo "<td bgcolor=\"#ffffff\"> <font color=\"#000000\"><center><a href=\"http://localhost/60224090105/edit.php?suid=".$row["suuid"]."\"><img width=\"50\" height=\"50\" src=\"./img/dinsor.jpg\"></a><center></td>";
             echo "</tr>";    
         }
     }
