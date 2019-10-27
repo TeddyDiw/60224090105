@@ -10,33 +10,33 @@
 
     $province = $_POST["province"];
     echo $province;
-    echo "<br/";
+    echo "<br/>";
 
     $suid = $_GET["suid"];
     echo $suid;
-    echo "<br/";
+    echo "<br/>";
 
     $fc = $_POST["favcolor"];
-    echo $_POST["favcolor"]; 
+    echo $favcolor; 
     echo "<br/>";
 
     $size = $_POST["size"];
-    echo $_POST["size"];
+    echo $size;
     echo "<br/>";
 
     $mobile_number = $_POST["mobile_number"];
-    echo $_POST["mobile_number"]; 
+    echo $mobile_number; 
     echo "<br/>";
 
     $pwd = $_POST["pwd"];
-    echo $_POST["pwd"];
+    echo $pwd;
     echo "<br/>";
 
     $intro = $_POST["intro"];
-    echo $_POST["intro"]; 
+    echo $intro; 
     echo "<br/>";
+
     echo "<font color=\"$fc\"size=\"$size\">$fullname</font>";
-    
     setcookie('city',$_POST["province"],time()+60);
     echo "<a href=\"cookie.php\">ดูค่า cookie</a>";
 

@@ -1,5 +1,15 @@
 <?php 
 
+    //setcookie('valid_user',1,time()+60);
+    if(isset($_COOKIE['namecolor']) && isset($_COOKIE['username']) && isset($_COOKIE['usize'])){
+        echo "<p align=\"right\"><font color=\"".$_COOKIE['namecolor']."\" size=\"".$_COOKIE['usize']."\" >".$_COOKIE['username']."</font></p>"; 
+        echo "<p align=\"right\"><a href=\"logout.php\">logout</a></p>";
+    }else{
+
+    }
+
+
+if(isset($_COOKIE["valid_user"])){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -66,5 +76,11 @@
 
     $conn->close();
     echo"<a href=\"http://localhost/60224090105/formtest.html\">หน้าฟอร์ม</a>";
+}else{
+    echo"<a href=\"http://localhost/60224090105/\">ไปยังหน้าล็อคอิน</a>";
+}
+
+
+
 
 ?>
